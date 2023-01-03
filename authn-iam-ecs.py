@@ -20,6 +20,7 @@ conjur_url = os.environ.get("CONJUR_APPLIANCE_URL")
 conjur_acct = os.environ.get("CONJUR_ACCOUNT")
 secretID = os.environ.get("SECRET_ID")
 host = os.environ.get("CONJUR_AUTHN_LOGIN")
+serviceID = os.environ.get("CONJUR_AUTHN_IAM_SERVICE_ID")
 cert = os.environ.get("VALIDATE_CERT")
 if cert == "false":
     cert = False
@@ -27,8 +28,9 @@ else:
     cert = True
 
 #get authentication token by providing AWSv4 signature, Conjur will validate the signature against AWS
-authenticate_url = "{conjur_appliance_url}/authn-iam/prod/{account}/{host}/authenticate".format(
+authenticate_url = "{conjur_appliance_url}/authn-iam/{serviceID}/{account}/{host}/authenticate".format(
                         conjur_appliance_url = conjur_url,
+                        serviceID = serviceID,
                         account = conjur_acct,
                         host = urllib.parse.quote_plus(host)
                     )

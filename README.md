@@ -34,6 +34,7 @@ AWS_ROLE_ARN=arn:aws:iam::123456789012:role/TaskRole
 CONJUR_APPLIANCE_URL=https://conjur-host.example.com
 CONJUR_ACCOUNT=account
 CONJUR_AUTHN_LOGIN=host/authn-iam-ecs-demo
+CONJUR_AUTHN_IAM_SERVICE_ID=service-id
 SECRET_ID=secret-id
 VALIDATE_CERT=true
 ```
